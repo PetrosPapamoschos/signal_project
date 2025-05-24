@@ -58,13 +58,13 @@ public class DataStorage {
      * @return a list of PatientRecord objects that fall within the specified time
      *         range
      */
-    public List<PatientRecord> getRecords(int patientId, long startTime, long endTime) {
-        Patient patient = patientMap.get(patientId);
-        if (patient != null) {
-            return patient.getRecords(startTime, endTime);
-        }
-        return new ArrayList<>(); // return an empty list if no patient is found
-    }
+    // public List<PatientRecord> getRecords(int patientId, long startTime, long endTime) {
+    //     Patient patient = patientMap.get(patientId);
+    //     if (patient != null) {
+    //         return patient.getRecords(startTime, endTime);
+    //     }
+    //     return new ArrayList<>(); // return an empty list if no patient is found
+    // }
 
     /**
      * Retrieves a collection of all patients stored in the data storage.
@@ -92,13 +92,13 @@ public class DataStorage {
         // reader.readData(storage);
 
         // Example of using DataStorage to retrieve and print records for a patient
-        List<PatientRecord> records = storage.getRecords(1, 1700000000000L, 1800000000000L);
-        for (PatientRecord record : records) {
-            System.out.println("Record for Patient ID: " + record.getPatientId() +
-                    ", Type: " + record.getRecordType() +
-                    ", Data: " + record.getMeasurementValue() +
-                    ", Timestamp: " + record.getTimestamp());
-        }
+        // List<PatientRecord> records = storage.getRecords(1, 1700000000000L, 1800000000000L);
+        // for (PatientRecord record : records) {
+        //     System.out.println("Record for Patient ID: " + record.getPatientId() +
+        //             ", Type: " + record.getRecordType() +
+        //             ", Data: " + record.getMeasurementValue() +
+        //             ", Timestamp: " + record.getTimestamp());
+        // }
 
         // Initialize the AlertGenerator with the storage
         AlertGenerator alertGenerator = new AlertGenerator(storage);
