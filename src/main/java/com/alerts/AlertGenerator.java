@@ -25,17 +25,15 @@ public class AlertGenerator {
     }
 
     /**
-     * Evaluates the specified patient's data to determine if any alert conditions
-     * are met. If a condition is met, an alert is triggered via the
-     * {@link #triggerAlert}
-     * method. This method should define the specific conditions under which an
-     * alert
+     * Evaluates the specified patient's data to determine if any alert conditions are met.
+     * If a condition is met, an alert is triggered via the {@link #triggerAlert(Alert)}
+     * method. This method should define the specific conditions under which an alert
      * will be triggered.
      *
      * @param patient the patient data to evaluate for alert conditions
      */
     public void evaluateData(Patient patient) {
-        // Implementation goes here
+        // TODO: Implementation goes here
     }
 
     /**
@@ -47,6 +45,6 @@ public class AlertGenerator {
      * @param alert the alert object containing details about the alert condition
      */
     private void triggerAlert(Alert alert) {
-        // Implementation might involve logging the alert or notifying staff
+        // TODO: Implementation might involve logging the alert or notifying staff
     }
 }
