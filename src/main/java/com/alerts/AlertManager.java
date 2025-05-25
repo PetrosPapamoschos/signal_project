@@ -20,7 +20,6 @@ public class AlertManager {
     public void dispatchAlert(Alert alert) {
         // Store the alert (could be extended to notify staff, etc.)
         activeAlerts.add(alert);
-        // outputStrategy.output(...);
     }
 
     /**

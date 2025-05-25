@@ -21,7 +21,7 @@ class DataStorageTest {
 
     @BeforeEach
     void setup() {
-        storage = new DataStorage();
+        storage = DataStorage.getInstance();
     }
 
     @Test

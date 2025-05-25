@@ -13,14 +13,20 @@ import com.alerts.AlertGenerator;
  * patient IDs.
  */
 public class DataStorage {
+    private static volatile DataStorage instance;
     private Map<Integer, Patient> patientMap; // Stores patient objects indexed by their unique patient ID.
 
     /**
      * Constructs a new instance of DataStorage, initializing the underlying storage
      * structure.
      */
-    public DataStorage() {
-        this.patientMap = new HashMap<>();
+    public static DataStorage getInstance() {
+        if (instance == null) {
+            synchronized(DataStorage.class) {
+                if (instance == null) instance = DataStorage.getInstance();
+            }
+        }
+        return instance;
     }
 
     /**
@@ -67,15 +73,6 @@ public class DataStorage {
     // }
 
     /**
-     * Retrieves a collection of all patients stored in the data storage.
-     *
-     * @return a list of all patients
-     */
-    public List<Patient> getAllPatients() {
-        return new ArrayList<>(patientMap.values());
-    }
-
-    /**
      * The main method for the DataStorage class.
      * Initializes the system, reads data into storage, and continuously monitors
      * and evaluates patient data.
@@ -85,7 +82,7 @@ public class DataStorage {
     public static void main(String[] args) {
         // DataReader is not defined in this scope, should be initialized appropriately.
         // DataReader reader = new SomeDataReaderImplementation("path/to/data");
-        DataStorage storage = new DataStorage();
+        DataStorage storage = DataStorage.getInstance();
 
         // Assuming the reader has been properly initialized and can read data into the
         // storage
@@ -108,4 +105,14 @@ public class DataStorage {
             alertGenerator.evaluateData(patient);
         }
     }
+
+    /** Clears _this_ instance’s data. */
+  public void clearAllData() {
+    patientMap.clear();
+  }
+
+  /** Returns a snapshot of all patients. */
+  public List<Patient> getAllPatients() {
+    return new ArrayList<>(patientMap.values());
+  }
 }

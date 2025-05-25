@@ -21,7 +21,7 @@ class FileDataReaderTest {
 
     @BeforeEach
     void setup() {
-        storage = new DataStorage();
+        storage = DataStorage.getInstance();
         reader = new FileDataReader(tempDir.toString());
     }
 
