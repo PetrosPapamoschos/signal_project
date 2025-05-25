@@ -67,3 +67,10 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## Project Members
 
 - Student ID: i6357786
+
+## UML Models
+
+All four subsystem diagrams and their combined rationale are available in the `uml_models/` directory:
+
+- [uml_models folder](uml_models/)
+
