@@ -74,3 +74,15 @@ All four subsystem diagrams and their combined rationale are available in the `u
 
 - [uml_models folder](uml_models/)
 
+## Code Coverage
+
+![Code Coverage](docs/coverage.png)
+
+- **Overall coverage:** 78% (after attaching JaCoCo correctly).  
+- **Remaining untested areas:**  
+  - `com.cardio_generator` packages (we focused testing on data_management and alerts).  
+  - Error‐handling paths in `FileDataReader`.  
+
+All core requirements (Patient storage, alert logic for BP, SpO₂, combined, ECG) are thoroughly tested.
+
+
