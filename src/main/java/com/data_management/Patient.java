@@ -52,7 +52,18 @@ public class Patient {
      *         range
      */
     public List<PatientRecord> getRecords(long startTime, long endTime) {
-        // TODO Implement and test this method
-         return new ArrayList<>();
-    }
+    // Defensive copy to avoid exposing internal list
+    return patientRecords.stream()
+            .filter(r -> r.getTimestamp() >= startTime && r.getTimestamp() <= endTime)
+            .toList();
+}
+
+/**
+ * @return this patient's unique identifier
+ */
+public int getPatientId() {
+    return patientId;
+}
+
+
 }
